@@ -1,0 +1,143 @@
+* {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* body settings on normal page load */
+body {
+  --body-bg: goldenrod;
+  --primary-text-color: black;
+  margin: 0;
+  padding: 0;
+  background-color: var(--body-bg);
+  color: var(--primary-text-color);
+  transition: all .3s ease-in-out;
+}
+
+/* body settings when the class .dark is applied */
+body.dark {
+  --primary-text-color: goldenrod;
+  --body-bg: black; 
+  transition: all .3s ease-in-out;
+}
+
+h1 {
+  text-align: center;
+}
+
+.darkmode-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items: center;
+  border-radius: 50%;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  transition: all .2s ease-in-out;
+  box-shadow: 1px 2px 3px 2px rgba(0,0,0,.3);
+  cursor: pointer;
+}
+
+.darkmode-btn:hover {
+  transform: scale(1.2);
+}
+
+.switch {
+  height: 15px;
+  width: 30px;
+  transition: all .5s ease-in-out;
+}
+
+.up {
+  box-shadow: 0 3px 5px 1px rgba(0,0,0,.3);
+}
+
+.down {
+  box-shadow: 0 -3px 5px 1px rgba(0,0,0,.3);  
+}
+
+.active {
+  background-color: var(--primary-text-color);
+}
+
+.light {
+  box-shadow: 0 3px 5px 2px rgba(255, 255, 255, 0.7);
+}
+
+.arrow {
+  cursor: pointer;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 700, "GRAD" 2, "opsz" 48;
+  color: white;
+  transform: scale(1.8);
+  transition: all .2s ease-in-out;
+}
+
+.arrow:hover .material-symbols-outlined {
+  transform: scale(2);
+  transition: all .2s ease-in-out;
+}
+
+.carousel {
+  max-width: min(90vw, 900px);
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-container {
+  width: 540px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel-item-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-item {
+  padding: 20px;
+  margin: 0;
+  width: 500px;
+  height: 650px;
+  overflow-y: auto;
+  background-color: whitesmoke;
+}
+
+.carousel-item h2,
+.carousel-item code {
+  font-family: monospace;
+}
+
+.carousel-item h2 {
+  color: slateblue;
+  border-bottom: 1px solid slateblue;
+}
+
+.carousel-item code {
+  color: black;
+}
+
+pre {
+  background-color: #eee;
+  border-radius: 10px;
+  box-shadow: 0 2px 1px 2px rgba(48, 48, 48, 0.1);
+}
+
+.hide {
+  display: none;
+}
