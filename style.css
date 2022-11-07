@@ -101,21 +101,29 @@ h1 {
   align-items: center;
   overflow: hidden;
   border-radius: 10px;
+  position: relative;
 }
 
 .carousel-item-wrapper {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 500px;
+  min-height: 500px;
 }
 
 .carousel-item {
   padding: 20px;
   margin: 0;
   width: 500px;
-  height: 650px;
+  /* height: 650px; */
   overflow-y: auto;
   background-color: whitesmoke;
+  position: absolute;
+  top: 0;
+  left: 200%;
+  bottom: 0;
 }
 
 .carousel-item h2,
@@ -139,5 +147,10 @@ pre {
 }
 
 .hide {
-  display: none;
+  visibility: hidden;
+}
+
+.show-item {
+  left: 0;
+  right: 0;
 }

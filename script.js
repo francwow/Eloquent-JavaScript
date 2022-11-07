@@ -17,9 +17,85 @@ const darkMode = () => {
 
 darkMode();
 
+
+// carousel function
+const carousel = () => {
+  const arrows = document.querySelectorAll('.arrow');
+  const carouselItem = document.querySelectorAll('.carousel-item');
+  console.log(carouselItem.length);
+  let index = 0;
+
+  if (index === 0) {
+    arrows[0].classList.add('hide');
+  } else if (index === carouselItem.length -1) {
+    arrows[1].classList.add('hide'); 
+  } else if (index > 0) {
+    arrows[0].classList.remove('hide'); 
+  } else if (index < carouselItem.length -1) {
+    arrows[1].classList.remove('hide'); 
+  }
+    
+  arrows.forEach((arrow, i) => {
+
+    arrow.addEventListener('click', () => {
+
+      if (i === 0) {
+        index -= 1;
+
+        if (index === 0) {
+          arrows[0].classList.add('hide');
+        } else if (index === carouselItem.length -1) {
+          arrows[1].classList.add('hide'); 
+        } else if (index > 0) {
+          arrows[0].classList.remove('hide'); 
+        } else if (index < carouselItem.length -1) {
+          arrows[1].classList.remove('hide'); 
+        }
+
+        console.log(index)
+        arrows[1].classList.remove('hide');
+        carouselItem.forEach((item, j) => {
+          if (j !== index) {
+            item.classList.remove('show-item');
+          } else {
+            item.classList.add('show-item');
+          }
+        });      
+
+      } else if (i === 1) {
+        console.log('right')
+        index += 1;
+
+        if (index === 0) {
+          arrows[0].classList.add('hide');
+        } else if (index === carouselItem.length -1) {
+          arrows[1].classList.add('hide'); 
+        } else if (index > 0) {
+          arrows[0].classList.remove('hide'); 
+        } else if (index < carouselItem.length -1) {
+          arrows[1].classList.remove('hide'); 
+        }
+
+        console.log(index)
+        arrows[0].classList.remove('hide');
+        carouselItem.forEach((item, j) => {
+          if (j !== index) {
+            item.classList.remove('show-item');
+          } else {
+            item.classList.add('show-item');
+          }
+        });
+      }
+      return index;
+    });
+  });
+}
+
+carousel();
+
+
 // SUMRANGE JAVASCRIPT EXERCISE.
 const sumRange = () => {
-
   let array = [];
   function range(arr) {
     let lowNumber = Math.min(arr[0], arr[1]); 
@@ -369,7 +445,7 @@ function nth(list, number) {
     newList = newList.rest;
   }
 
-  // Finllay we iterate inside that array and look for the item with the same index as the number passed to the function
+  // Finally we iterate inside that array and look for the item with the same index as the number passed to the function
   for (let i = 0; i < item.length; i++) {
     if (i === number) {
       itemFound = item[i];
