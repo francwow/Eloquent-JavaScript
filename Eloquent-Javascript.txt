@@ -10,7 +10,7 @@ TO REMEMBER DUE TO THEIR HIGH VALUE IN MY LEARNING PROCESS */
 /* FOR A MORE ACCURATE DESCRIPTION OF THE INFORMATION EXPRESSED HERE, PLEASE GO TO 
 eloquentjavascript.net */
 
-// TO-DO: continue adding items to the carousel and create the script to move with arrows.
+// TO-DO: continue chapter 4 exercises - deep comparison (preguntar a pipe).
 
 
 

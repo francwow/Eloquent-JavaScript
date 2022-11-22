@@ -22,7 +22,6 @@ darkMode();
 const carousel = () => {
   const arrows = document.querySelectorAll('.arrow');
   const carouselItem = document.querySelectorAll('.carousel-item');
-  console.log(carouselItem.length);
   let index = 0;
 
   if (index === 0) {
@@ -41,18 +40,13 @@ const carousel = () => {
 
       if (i === 0) {
         index -= 1;
-
+        console.log(index);
         if (index === 0) {
           arrows[0].classList.add('hide');
         } else if (index === carouselItem.length -1) {
           arrows[1].classList.add('hide'); 
-        } else if (index > 0) {
-          arrows[0].classList.remove('hide'); 
-        } else if (index < carouselItem.length -1) {
-          arrows[1].classList.remove('hide'); 
-        }
+        } 
 
-        console.log(index)
         arrows[1].classList.remove('hide');
         carouselItem.forEach((item, j) => {
           if (j !== index) {
@@ -63,20 +57,14 @@ const carousel = () => {
         });      
 
       } else if (i === 1) {
-        console.log('right')
         index += 1;
 
         if (index === 0) {
           arrows[0].classList.add('hide');
         } else if (index === carouselItem.length -1) {
           arrows[1].classList.add('hide'); 
-        } else if (index > 0) {
-          arrows[0].classList.remove('hide'); 
-        } else if (index < carouselItem.length -1) {
-          arrows[1].classList.remove('hide'); 
-        }
+        } 
 
-        console.log(index)
         arrows[0].classList.remove('hide');
         carouselItem.forEach((item, j) => {
           if (j !== index) {
@@ -455,12 +443,116 @@ function nth(list, number) {
   return itemFound;
 }
 
-console.log(nth(5)); // pregunta para pipe
-// → undefined
+// console.log(nth(5)); // pregunta para pipe
+// // → undefined
 console.log(nth(arrayToList([10, 20, 30]), 1));
 // → 20
 
 
+// chapter 4 exercises - deep comparison
+function deepEqual(a, b) {
+  // console.log(typeof a);
+  // console.log(b.a);
+  debugger;
 
+  // if a & b are null return true
+  if (a === null || b === null) {
+    return false;
+  } else if (typeof a === 'object' && typeof b === 'object') {
+      if (Array.isArray(a) && Array.isArray(b)) {
+        if (a.toString() !== b.toString()) {
+          return false;
+        }
+      } else {
+        let array1 = Object.keys(a);
+        let array2 = Object.keys(b);
+
+        if (array1.length === array2.length) {
+          if (array1.toString() !== array2.toString()) {
+            return false;
+          } else {
+
+            // improve for loop with .includes
+            for (let i = 0; i < array1.length; i++) {
+              for (let j = 0; j < array2.length; j++) {
+                if (array1[i] === array2[j]) {
+                  // console.log(array1[i])
+                  // console.log(array2[j])
+                  console.log(a[array1[i]]);
+                  console.log(b[array2[j]]);
+
+                  let arr1 = [a[array1[i]]];
+                  let arr2 = [b[array2[j]]];
+
+                  if (arr1.toString() !== arr2.toString()) {
+                    return false;
+                  } else {
+                    let isDeepEqual = deepEqual(a[array1[i]], b[array2[j]]);
+                    if (!isDeepEqual) {
+                      return false;
+                    }
+                  }
+                } 
+              }
+            }
+
+
+          }
+        } else {
+              return false;
+        }
+      }
+  } else if (a !== b) {
+    return false;
+  } 
+
+  return true;
+}
+
+// trying to compare portperty by property
+const object1 = {
+  m: 10,
+  c: {
+    d: {
+      f: true
+    }
+  },
+  a: 'somestring',
+  b: 42
+};
+
+const object2 = {
+  m: 10,
+  c: {
+    d: {
+      f: false
+    }
+  },
+  a: 'somestring',
+  b: 42
+};
+
+const object3 = {
+  d: 'somestring',
+  b: 42,
+  c: false,
+  f: 10
+};
+
+const arrayExample = ['a', 'b', 'c'];
+
+let numberOne = 1;
+
+let numberTwo = 'two';
+
+// console.log(deepEqual(object1, object2));
+
+let obj = {here: {is: "an"}, object: 2};
+console.log(deepEqual(obj, obj));
+// // → true
+console.log(deepEqual(obj, {here: 1, object: 2}));
+// // → false
+console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+// → true
 
 

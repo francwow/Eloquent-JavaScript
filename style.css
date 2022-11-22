@@ -1,5 +1,6 @@
 * {
   font-family: Georgia, 'Times New Roman', Times, serif;
+  box-sizing: border-box;
 }
 
 /* body settings on normal page load */
@@ -94,7 +95,7 @@ h1 {
 }
 
 .carousel-container {
-  width: 540px;
+  width: 550px;
   margin: 50px auto;
   display: flex;
   justify-content: flex-start;
@@ -116,7 +117,7 @@ h1 {
 .carousel-item {
   padding: 20px;
   margin: 0;
-  width: 500px;
+  width: 550px;
   /* height: 650px; */
   overflow-y: auto;
   background-color: whitesmoke;
@@ -124,6 +125,15 @@ h1 {
   top: 0;
   left: 200%;
   bottom: 0;
+  opacity: 0;
+  transition: left .5s ease-in-out, opacity .1s ease-in-out;
+}
+
+.show-item {
+  opacity: 1;
+  left: 0;
+  right: 0;
+  transition: left .5s ease-in-out, opacity .1s ease-in-out;
 }
 
 .carousel-item h2,
@@ -150,7 +160,82 @@ pre {
   visibility: hidden;
 }
 
-.show-item {
-  left: 0;
-  right: 0;
+/* media queries */
+
+@media screen and (max-width: 750px) {
+  h2 {
+    font-size: .9rem;
+  }
+
+  .carousel {
+    max-width: min(95vw, 900px);
+  }
+
+  .carousel-container {
+    width: 400px;
+  }
+
+  .carousel-item {
+    width: 400px;
+  }
+
+  code {
+    font-size: .6rem;
+  }
+
+}
+
+@media screen and (max-width: 550px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: .8rem;
+  }
+
+  .darkmode-btn {
+    top: 90%;
+    right: 50%;
+    margin-right: -15px;
+  }
+
+  .carousel {
+    max-width: min(95vw, 900px);
+    margin: 15px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carousel-container {
+    margin: 15px auto;
+    width: 300px;
+  }
+
+  .carousel-item-wrapper {
+    min-height: 400px;
+  }
+
+  .carousel-item {
+    width: 300px;
+    padding: 15px;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 700, "GRAD" 2, "opsz" 48;
+    color: white;
+    transform: scale(1.1);
+    transition: all .2s ease-in-out;
+  }
+  
+  .arrow:hover .material-symbols-outlined {
+    transform: scale(1.5);
+    transition: all .2s ease-in-out;
+  }
+
+  code {
+    font-size: .5rem;
+  }
+  
 }
